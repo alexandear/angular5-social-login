@@ -1,6 +1,6 @@
 {
   "name": "angular5-social-login",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Angular 5 : Social Login (Facebook and Google)",
   "scripts": {
     "build": "gulp build",
@@ -9,12 +9,15 @@
     "docs:build": "compodoc -p tsconfig.json -n ng4-social-login -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "lint": "tslint --type-check  src/**/*.ts"
+    "lint": "tslint --type-check  src/**/*.ts",
+    "postinstall": "mv ./dist/* ./ && rmdir ./dist"
+
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sabyasachibiswal/angular5-social-login"
+    "url": "https://github.com/alexandear/angular5-social-login"
   },
+  "files": ["dist"],
   "author": {
     "name": "Sabyasachi Biswal",
     "email": "sabyasachi.biswal4@gmail.com"
