@@ -495,7 +495,7 @@ var AppleLoginProvider = (function (_super) {
                 AppleID.auth.init({
                     clientId: _this.clientId,
                     scope: 'email',
-                    redirect_uri: _this.redirectUri
+                    redirectURI: _this.redirectUri
                 });
             });
         });

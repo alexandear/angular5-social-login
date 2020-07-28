@@ -21,7 +21,7 @@ export class AppleLoginProvider extends BaseLoginProvider {
           AppleID.auth.init({
             clientId: this.clientId,
             scope: 'email',
-            redirect_uri: this.redirectUri
+            redirectURI: this.redirectUri
           });
       });
     });
