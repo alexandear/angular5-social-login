@@ -210,7 +210,7 @@ gulp.task('compile', gulp.series(
 /**
  * Watch for any change in the /src folder and compile files
  */
-gulp.task('watch', () => gulp.watch(`${srcFolder}/**/*`, ['compile']));
+gulp.task('watch', () => gulp.watch(`${srcFolder}/**/*`, gulp.series('compile')));
 
 gulp.task('clean', gulp.series('clean:dist', 'clean:tmp', 'clean:build'));
 
