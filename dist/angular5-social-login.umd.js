@@ -476,11 +476,13 @@
         /**
          * @param {?} clientId
          * @param {?} redirectUri
+         * @param {?} usePopup
          */
-        function AppleLoginProvider(clientId, redirectUri) {
+        function AppleLoginProvider(clientId, redirectUri, usePopup) {
             var _this = _super.call(this) || this;
             _this.clientId = clientId;
             _this.redirectUri = redirectUri;
+            _this.usePopup = usePopup;
             _this.loginProviderObj = new LoginProviderClass();
             _this.loginProviderObj.id = clientId;
             _this.loginProviderObj.name = 'apple';
@@ -497,7 +499,8 @@
                     AppleID.auth.init({
                         clientId: _this.clientId,
                         scope: 'email',
-                        redirectURI: _this.redirectUri
+                        redirectURI: _this.redirectUri,
+                        usePopup: _this.usePopup,
                     });
                 });
             });

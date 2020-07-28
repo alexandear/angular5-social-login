@@ -8,7 +8,7 @@ export class AppleLoginProvider extends BaseLoginProvider {
   public static readonly PROVIDER_ID = 'apple';
   public loginProviderObj: LoginProviderClass = new LoginProviderClass();
 
-  constructor(private clientId: string, private redirectUri: string) {
+  constructor(private clientId: string, private redirectUri: string, private usePopup: boolean) {
     super();
     this.loginProviderObj.id = clientId;
     this.loginProviderObj.name = 'apple';
@@ -21,7 +21,8 @@ export class AppleLoginProvider extends BaseLoginProvider {
           AppleID.auth.init({
             clientId: this.clientId,
             scope: 'email',
-            redirectURI: this.redirectUri
+            redirectURI: this.redirectUri,
+            usePopup: this.usePopup,
           });
       });
     });
