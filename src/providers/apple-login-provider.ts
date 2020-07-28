@@ -19,7 +19,7 @@ export class AppleLoginProvider extends BaseLoginProvider {
     return new Promise((resolve, reject) => {
       this.loadScript(this.loginProviderObj, () => {
           AppleID.auth.init({
-            client_id: this.clientId,
+            clientId: this.clientId,
             scope: 'email',
             redirect_uri: this.redirectUri
           });

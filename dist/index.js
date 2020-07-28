@@ -493,7 +493,7 @@ var AppleLoginProvider = (function (_super) {
         return new Promise(function (resolve, reject) {
             _this.loadScript(_this.loginProviderObj, function () {
                 AppleID.auth.init({
-                    client_id: _this.clientId,
+                    clientId: _this.clientId,
                     scope: 'email',
                     redirect_uri: _this.redirectUri
                 });
