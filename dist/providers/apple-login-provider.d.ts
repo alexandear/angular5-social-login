@@ -5,7 +5,6 @@ export declare class AppleLoginProvider extends BaseLoginProvider {
     private redirectUri;
     static readonly PROVIDER_ID: string;
     loginProviderObj: LoginProviderClass;
-    private auth;
     constructor(clientId: string, redirectUri: string);
     initialize(): Promise<SocialUser>;
     drawUser(): SocialUser;

@@ -492,12 +492,10 @@ var AppleLoginProvider = (function (_super) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.loadScript(_this.loginProviderObj, function () {
-                AppleID.load('AppleID', function () {
-                    _this.auth = AppleID.auth.init({
-                        client_id: _this.clientId,
-                        scope: 'email',
-                        redirect_uri: _this.redirectUri
-                    });
+                AppleID.auth.init({
+                    client_id: _this.clientId,
+                    scope: 'email',
+                    redirect_uri: _this.redirectUri
                 });
             });
         });
@@ -512,12 +510,8 @@ var AppleLoginProvider = (function (_super) {
      * @return {?}
      */
     AppleLoginProvider.prototype.signIn = function () {
-        var _this = this;
         return new Promise(function (resolve, reject) {
-            var /** @type {?} */ promise = _this.auth.signIn();
-            promise.then(function () {
-                resolve(_this.drawUser());
-            });
+            AppleID.auth.signIn();
         });
     };
     /**
