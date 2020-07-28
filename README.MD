@@ -1,4 +1,6 @@
-Social login api for Angular 5. Includes Facebook and Google login.  
+## This is fork of project: https://github.com/sabyasachibiswal/angular5-social-login
+
+Social login api for Angular 5. Includes Facebook, Google, LinkedIn, Apple login.  
 
 [AOT](https://angular.io/guide/aot-compiler) Compatible.
 
@@ -24,6 +26,7 @@ import {
     AuthServiceConfig,
     GoogleLoginProvider,
     FacebookLoginProvider,
+    AppleLoginProvider,
 } from "angular5-social-login";
 
 
@@ -39,7 +42,11 @@ export function getAuthServiceConfigs() {
           id: GoogleLoginProvider.PROVIDER_ID,
 	      provider: new GoogleLoginProvider("Your-Google-Client-Id")
         },
-      ];
+        {
+          id: AppleLoginProvider.PROVIDER_ID,
+          provider: new AppleLoginProvider("Your-Apple-Client-Id")
+        },
+      ]
   );
   return config;
 }
@@ -72,7 +79,8 @@ import {Component, OnInit} from '@angular/core';
 import {
     AuthService,
     FacebookLoginProvider,
-    GoogleLoginProvider
+    GoogleLoginProvider,
+    AppleLoginProvider
 } from 'angular5-social-login';
 
 @Component({
@@ -92,6 +100,8 @@ export class SigninComponent implements OnInit {
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
     }else if(socialPlatform == "google"){
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }else if(socialPlatform == "apple"){
+      socialPlatformProvider = AppleLoginProvider.PROVIDER_ID;
     }
     
     this.socialAuthService.signIn(socialPlatformProvider).then(
@@ -118,6 +128,7 @@ In `signin.component.html`,
 
 <button (click)="socialSignIn('facebook')">Sign in with Facebook</button>
 <button (click)="socialSignIn('google')">Signin in with Google</button>              
+<button (click)="socialSignIn('apple')">Sign in with Apple</button>              
 ```
 
 
@@ -132,3 +143,7 @@ Add `Facebook login` under products and configure `Valid OAuth redirect URIs`.
 Follow this official documentation on how to [
 Create a Google API Console project and client ID](https://developers.google.com/identity/sign-in/web/devconsole-project).
 
+### Apple Client Id : 
+
+Follow this official documentation on how to [
+Configure Sign in with Apple for the web](https://help.apple.com/developer-account/?lang=en#/dev1c0e25352).
